@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>注册-chatroom</title>
+    <script>
+        function validate() {
+            var account = document.getElementById("account").value;
+            var password = document.getElementById("password").value;
+            var username = document.getElementById("username").value;
+
+            //验证账号合法性
+            var pattern = /^[1-9][0-9]{5,8}$/;
+            if ( account == ''){
+                alert("账号不能为空！");
+                return false;
+            }else if (!pattern.test(account)){
+                alert("账号格式不正确!\n请输入6-9个数字，且第一个数字不能是0");
+                return false;
+            }
+
+            //验证密码
+            if ( password == ''){
+                alert("密码不能为空！");
+                return false;
+            }else if (password.length<6||password.length>12){
+                alert("密码长度为6-12个字符");
+                return false;
+            }
+
+            //验证用户名
+            if ( username == ''){
+                alert("用户名不能为空！");
+                return false;
+            }else if (username.length>9){
+                alert("密码长度为0-9个字符");
+                return false;
+            }
+
+            return ture;
+        }
+    </script>
+</head>
+
+<body>
+    <form action="RegisterServlet" method="post" onsubmit="return validate()" accept-charset="UTF-8">
+        <div>
+            用户注册
+        </div>
+        <div >
+            <label>账&nbsp;&nbsp;&nbsp;号：</label>
+            <input id="account"  type="text" name="account" placeholder="账号长度为6-9，纯数字">
+        </div>
+        <div >
+            <label >密&nbsp;&nbsp;&nbsp;码：</label>
+            <input id="password" type="password" name="password" placeholder="密码长度为6-10">
+        </div>
+        <div >
+            <label >用户名：</label>
+            <input id="username" type="text" name="username" placeholder="用户名长度为1-9">
+        </div>
+        <div>
+            <input type="submit" value="注册" >
+        </div>
+    </form>
+</body>
+</html>

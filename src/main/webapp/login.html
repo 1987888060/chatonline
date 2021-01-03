@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>登录-chatroom</title>
+</head>
+<body>
+    <form action="LoginServlet" method="post">
+        <div>
+            <input type="radio" name="role" value="0" checked>用户<input type="radio" name="role" value="1">管理员
+        </div>
+        <div >
+            <label >账号：</label>
+            <input  type="text" name="account" placeholder="账号">
+        </div>
+        <div >
+            <label >密码：</label>
+            <input type="password" name="password" placeholder="密码">
+        </div>
+        <div>
+            <input type="submit" value="登录">
+        </div>
+        <div>
+            <a href="register.html">用户注册</a>
+        </div>
+    </form>
+</body>
+</html>
