@@ -28,9 +28,9 @@
                 if (xmlhttp.readyState==4 && xmlhttp.status==200)
                 {
                     var json = JSON.parse(xmlhttp.responseText);
-                    var str = "<h3>申请列表</h3>\n";
+                    var str = "<h3 style='color: white'>申请列表</h3>\n";
                     for( var i = 0 ;i < json.length; i++){
-                        str = str + "<div style='display:block; color: blueviolet; background-color:#ffa400 ;'>\n" +
+                        str = str + "<div style='display:block; color: white'>\n" +
                             "            <h5>申请人:"+json[i].username+"</h5>\n" +
                             "            <h5>聊天室名字:"+json[i].name+"</h5>\n" +
                             "            <p>简介:"+json[i].introduce+"</p>\n"+
@@ -52,10 +52,14 @@
             },100)
         }
     </script>
+    <link rel="stylesheet" href="/css/style3.css">
 </head>
 <body>
-    <a href="/LogoutServlet">退出</a>
-    <div id="list">
+    <div class="top">
+        <h3 style="color: white">管理员界面</h3>
+        <a href="/LogoutServlet" style="color: white">退出</a>
+    </div>
+    <div id="list"  style="overflow-x: hidden; word-break:break-all; ">
         没有申请
     </div>
 

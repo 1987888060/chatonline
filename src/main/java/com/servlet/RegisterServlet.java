@@ -44,7 +44,7 @@ public class RegisterServlet extends HttpServlet {
             PrintWriter writer = response.getWriter();
             writer.write("<script>");
             writer.write("alert('账户已存在!');");
-            writer.write("window.location.href='register.html'");
+            writer.write("window.location.href='login.html'");
             writer.write("</script>");
             writer.flush();
             writer.close();

@@ -28,9 +28,6 @@ public class PerProApplyServlet extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        for(ApplyRoom room:list){
-            System.out.println(room);
-        }
         response.getWriter().write( JSON.toJSONString(list));
     }
 

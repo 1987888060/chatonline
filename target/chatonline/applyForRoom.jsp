@@ -10,9 +10,12 @@
 <html>
 <head>
     <title>申请</title>
+    <link rel="stylesheet" href="/css/style2.css">
 </head>
 <body>
-    <a href="homepage.jsp">首页</a>
+    <div class="top">
+        <a href="homepage.jsp">首页</a>
+    </div>
     <form action="ApplyServlet" method="post">
         <textarea id="reason" name="reason" style=" width: 400px ;height: 200px ; resize: none ;overflow-x: hidden" >
         </textarea>

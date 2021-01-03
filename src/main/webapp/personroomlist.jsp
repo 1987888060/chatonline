@@ -29,11 +29,11 @@
                 {
 
                     var json = JSON.parse(xml.responseText);
-                    var str = "<h3>我的聊天室</h3>\n";
+                    var str = "<h3 style='color: white'>我的聊天室</h3>\n";
                     for( var i = 0 ;i < json.length; i++){
                         var hrefStr = "/LoadInformationServlet?chatRoomId="+json[i].chatRoomId;
                         str = str + "<a href='"+hrefStr+"' >\n"+
-                            "<div style='display:block; color: blueviolet; background-color:#ffa400 ;'>\n" +
+                            "<div style='display:block; color: white; '>\n" +
                             "            <h5>房间名:"+json[i].chatRoomName+"</h5>" +
                             "        </div>\n"+
                             "</a>\n"
@@ -52,9 +52,12 @@
             },100);
         }
     </script>
+    <link rel="stylesheet" href="/css/style3.css">
 </head>
 <body>
-    <a href="homepage.jsp">首页</a>
+    <div class="top">
+        <a href="homepage.jsp" style="color: white">首页</a>
+    </div>
     <div id="personchatroomlist">
     </div>
 

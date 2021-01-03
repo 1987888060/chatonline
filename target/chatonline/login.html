@@ -3,26 +3,113 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>登录-chatroom</title>
+    <!--图标库 可无视-->
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+    <!--核心样式-->
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        function validate() {
+            var account = document.getElementById("account").value;
+            var password = document.getElementById("password").value;
+            var username = document.getElementById("username").value;
+            var passwords = document.getElementById("passwords").value;
+
+            //验证账号合法性
+            var pattern = /^[1-9][0-9]{5,8}$/;
+            if ( account == ''){
+                alert("账号不能为空！");
+                return false;
+            }else if (!pattern.test(account)){
+                alert("账号格式不正确!\n请输入6-9个数字，且第一个数字不能是0");
+                return false;
+            }
+
+            //验证密码
+            if ( password == ''){
+                alert("密码不能为空！");
+                return false;
+            }else if (password.length<6||password.length>12){
+                alert("密码长度为6-12个字符");
+                return false;
+            }
+
+            //验证用户名
+            if ( username == ''){
+                alert("用户名不能为空！");
+                return false;
+            }else if (username.length>9){
+                alert("密码长度为0-9个字符");
+                return false;
+            }
+
+            if(password != passwords){
+                alert("密码不一致！")
+                return false;
+            }
+
+            return ture;
+        }
+    </script>
 </head>
 <body>
-    <form action="LoginServlet" method="post">
-        <div>
-            <input type="radio" name="role" value="0" checked>用户<input type="radio" name="role" value="1">管理员
-        </div>
-        <div >
-            <label >账号：</label>
-            <input  type="text" name="account" placeholder="账号">
-        </div>
-        <div >
-            <label >密码：</label>
-            <input type="password" name="password" placeholder="密码">
-        </div>
-        <div>
-            <input type="submit" value="登录">
-        </div>
-        <div>
-            <a href="register.html">用户注册</a>
-        </div>
-    </form>
+<div class="container">
+    <div class="card"></div>
+    <div class="card">
+        <h1 class="title">用户登录</h1>
+        <form action="LoginServlet" method="post" >
+            <div class="">
+                <input type="radio" name="role" value="0" checked>用户<input type="radio" name="role" value="1">管理员
+            </div>
+            <div class="input-container">
+                <input type="text" name="account" required="required" />
+                <label >账号</label>
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <input type="password"  name="password" required="required" />
+                <label>密码</label>
+                <div class="bar"></div>
+            </div>
+            <div class="button-container">
+                <button><span>登录</span></button>
+            </div>
+        </form>
+    </div>
+    <div class="card alt">
+        <div class="toggle"></div>
+        <h1 class="title">用户注册
+            <div class="close"></div>
+        </h1>
+        <form  action="RegisterServlet" method="post" onsubmit="return validate()" accept-charset="UTF-8">
+            <div class="input-container">
+                <input type="text" id="account" name="account" required="required" />
+                <label >账号</label>
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" name="password" required="required" />
+                <label >密码</label>
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <input type="password" id="passwords" name="passwords" required="required" />
+                <label >确认密码</label>
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <input type="text" id="username" type="text" name="username" required="required"/>
+                <label >用户名</label>
+                <div class="bar"></div>
+            </div>
+            <div class="button-container">
+                <button><span>提交注册</span></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <script src='/js1/jquery.min.js'></script>
+    <script src="/js1/script.js"></script>
 </body>
 </html>

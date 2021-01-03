@@ -78,8 +78,10 @@ public class PersonRoomListDao {
         ps.setObject(2,chatRoomId);
         ps.setObject(3,new Date());
         ps.execute();
-
         DBUtil.close(conn,ps,rs);
+
+        ChatRoomDao dao = new ChatRoomDao();
+        dao.update(chatRoomId);
     }
 
     public void delete(int chatRoomId,int userId) throws SQLException {

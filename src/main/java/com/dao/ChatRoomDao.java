@@ -112,4 +112,20 @@ public class ChatRoomDao {
 
         DBUtil.close(conn,ps,rs);
     }
+
+    public void update(int chatRoomId) throws SQLException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        if(conn == null){
+            conn = DBUtil.getMysqlConn();
+        }
+
+        String sql = "UPDATE chatroom SET number = number + 1  WHERE chatRoomId = ?";
+        ps = conn.prepareStatement(sql);
+        ps.setObject(1,chatRoomId);
+        ps.execute();
+        DBUtil.close(conn,ps,rs);
+    }
 }

@@ -32,15 +32,15 @@
                     var json = JSON.parse(xmlhttp.responseText);
                     var str = "";
                     for( var i = 0 ;i < json.length; i++){
-                        str = str + "<div style='display:block; color: blueviolet; background-color:#ffa400 ;'>\n" +
+                        str = str + "<div style='display:block; color: white'>\n" +
                             "            <h5>时间:"+json[i].times+"</h5>\n" +
                             "            <p>发送人:"+json[i].user+"</p>\n"+
                             "            <p>消息:"+json[i].context+"</p>\n" +
                             "        </div>\n";
                     }
                     document.getElementById("accept").innerHTML = str;
-                    /*var acceptdiv = document.getElementById("accept");
-                    acceptdiv.scrollTop = acceptdiv.scrollHeight;*/
+                    var acceptdiv = document.getElementById("accept");
+                    acceptdiv.scrollTop = acceptdiv.scrollHeight;
                 }
             }
             xmlhttp.open("POST","/LoadInformationServlet",true);
@@ -67,8 +67,8 @@
                     var str = "在线成员";
                     for( var i = 0 ;i < json.length; i++){
                         var hrefStr = "/LoadPInformationServlet?ChatUserId="+json[i].userid;
-                        str = str + "<a href='"+hrefStr+"' >\n"+
-                            "<div style='display:block; color: blueviolet; background-color:#ffa400 ;'>\n" +
+                        str = str + "<a href='"+hrefStr+"' style='color: white'>\n"+
+                            "<div style='display:block;'>\n" +
                             "            <h5>"+json[i].username+"</h5>\n" +
                         "        </div>\n"+
                         "</a>\n";
@@ -84,7 +84,7 @@
             setInterval(function () {
                 loadXMLDoc();
                 loadmembership();
-            },10);
+            },100);
         }
         document.onkeydown = function (e) {
             if(e.keyCode == 13 && e.ctrlKey){
@@ -100,24 +100,28 @@
                 }else{
                     //window.alert(text);
                     document.getElementById("sendButton").click();
-                    window.alert("suadhuaishduiui");
                     document.getElementById("send").value = "";
                 }
             }
         }
     </script>
+    <link rel="stylesheet" href="/css/style2.css">
 </head>
 <body>
-    <a href="/homepage.jsp">首页</a>
-    <a href="/personroomlist.jsp">我的聊天室</a>
-    <div id="accept" style="overflow-x: hidden; word-break:break-all; width: 800px ;height: 400px ; border: solid">
+    <div class="top">
+        <a href="/homepage.jsp" style="color: white">首页</a>
+        <a href="/personroomlist.jsp" style="color: white">我的聊天室</a>
     </div>
-    <form action="SendServlet" method="post" >
-        <textarea id="send" name="text" style=" width: 800px ;height: 150px ; resize: none ;overflow-x: hidden" >
+    <div class="left">
+        <div id="accept" style="overflow-x: hidden; word-break:break-all; ">
+        </div>
+        <form action="SendServlet" method="post" >
+        <textarea id="send" name="text" style="resize: none ;overflow-x: hidden">
         </textarea>
-        <input id="sendButton" type="submit" value="发送">
-    </form>
-    <div id="membership" style="overflow-x: hidden; word-break:break-all; width: 200px ;height: 400px ; border: solid">
+            <input id="sendButton" type="submit" value="发送">
+        </form>
+    </div>
+    <div class="right" id="membership" style="overflow-x: hidden; word-break:break-all; border: solid">
     </div>
 </body>
 </html>

@@ -33,8 +33,8 @@
                     var str = "";
                     for( var i = 0 ;i < json.length; i++){
                         var hrefStr = "/PerProApplyServlet?chatRoomId="+json[i].chatRoomId;
-                        str = str + "<a href='"+hrefStr+"' >\n"+
-                            "<div style='display:block; color: blueviolet; background-color:#ffa400 ;'>\n" +
+                        str = str + "<a href='"+hrefStr+"' style='color: white'>\n"+
+                            "<div style='display:block;'>\n" +
                             "            <h5>房间名:"+json[i].chatRoomName+"</h5>" +
                             "        </div>\n"+
                             "</a>\n"
@@ -52,11 +52,14 @@
             },100);
         }
     </script>
+    <link rel="stylesheet" href="/css/style2.css">
 </head>
 <body>
-    <a href="/ApplyChatRoomServlet">申请聊天室</a>
-    <a href="/homepage.jsp">首页</a>
-    <div>
+    <div class="top">
+        <a href="/ApplyChatRoomServlet" style="color: white">申请聊天室</a>
+        <a href="/homepage.jsp" style="color: white">首页</a>
+    </div>
+    <div style="color: white">
         我管理的聊天室
         <div id="managelist">
 

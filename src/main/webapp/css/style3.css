@@ -1,0 +1,29 @@
+body {
+    background-image: url("//www.bing.com/th?id=OHR.Goessweinstein_ZH-CN2155531895_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=HpEdgeAn"); /* 首先增加背景图 */
+    background-size:  100% auto; /* 设置背景的大小 */
+    background-repeat: no-repeat; /* 将背景设置为不重复显示 */
+}
+*{
+    text-decoration: none;
+    list-style: none;
+}
+.top{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+#list div a{
+    border: #2e6da4;
+    background-color: #2e6da4;
+    color: white;
+}
+#list div a{
+    border: #2e6da4;
+    background-color: #2e6da4;
+    color: white;
+}
+#processlist div a{
+    border: #2e6da4;
+    background-color: #2e6da4;
+    color: white;
+}

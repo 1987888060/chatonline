@@ -33,14 +33,14 @@
                     var json = JSON.parse(xmlhttp.responseText);
                     var str = "";
                     for( var i = 0 ;i < json.length; i++){
-                        str = str + "<div style='display:block; color: blueviolet; background-color:#ffa400 ;'>\n" +
+                        str = str + "<div style='display:block; color: white'>\n" +
                             "            <p>发送人:"+json[i].sender+"</p>\n"+
                             "            <p>消息:"+json[i].text+"</p>\n" +
                             "        </div>\n";
                     }
                     document.getElementById("accept").innerHTML = str;
-                    /*var acceptdiv = document.getElementById("accept");
-                    acceptdiv.scrollTop = acceptdiv.scrollHeight;*/
+                    var acceptdiv = document.getElementById("accept");
+                    acceptdiv.scrollTop = acceptdiv.scrollHeight;
                 }
             }
             xmlhttp.open("POST","/LoadPInformationServlet",true);
@@ -70,16 +70,22 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="/css/style2.css">
 </head>
 <body>
-    <a href="/homepage.jsp">首页</a>
-    <a href="/chatroom.jsp">聊天室</a>
-    <div id="accept" style="overflow-x: hidden; word-break:break-all; width: 800px ;height: 400px ; border: solid">
-    </div>
-    <form action="PSendServlet" method="post" >
-            <textarea id="send" name="text" style=" width: 800px ;height: 150px ; resize: none ;overflow-x: hidden" >
-            </textarea>
-        <input id="sendButton" type="submit" value="发送">
     </form>
+    <div class="top">
+        <a href="/homepage.jsp" style="color: white">首页</a>
+        <a href="/chatroom.jsp" style="color: white">我的聊天室</a>
+    </div>
+    <div class="left">
+        <div id="accept" style="overflow-x: hidden; word-break:break-all; ">
+        </div>
+        <form action="PSendServlet" method="post" >
+        <textarea id="send" name="text" style="resize: none ;overflow-x: hidden">
+        </textarea>
+            <input id="sendButton" type="submit" value="发送">
+        </form>
+    </div>
 </body>
 </html>

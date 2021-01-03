@@ -29,9 +29,9 @@
                 {
 
                     var json = JSON.parse(xmlhttp.responseText);
-                    var str = "<h3>申请列表</h3>\n";
+                    var str = "<h3 style='color: white'>申请列表</h3>\n";
                     for( var i = 0 ;i < json.length; i++){
-                        str = str + "<div style='display:block; color: blueviolet; background-color:#ffa400 ;'>\n" +
+                        str = str + "<div style='display:block; color: white; '>\n" +
                             "            <h5>申请人:"+json[i].username+"</h5>\n" +
                             "            <p>理由:"+json[i].reason+"</p>\n"+
                             "            <a href='/AgreeRoomServlet?applyId="+json[i].applyId+"'>同意</a>\n"+
@@ -51,10 +51,13 @@
             },100)
         }
     </script>
+    <link rel="stylesheet" href="/css/style3.css">
 </head>
 <body>
-    <a href="/homepage.jsp">首页</a>
-    <a href="/managechatroom.jsp">聊天室管理</a>
+    <div class="top">
+        <a href="/homepage.jsp" style="color: white">首页</a>
+        <a href="/managechatroom.jsp" style="color: white">聊天室管理</a>
+    </div>
     <div id="processlist">
     </div>
 </body>
