@@ -56,7 +56,7 @@
 <body>
     <a href="/LogoutServlet">退出</a>
     <div id="list">
-
+        没有申请
     </div>
 
 </body>
